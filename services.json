@@ -1,0 +1,84 @@
+[
+  {
+    "name": "api-gateway",
+    "type": "gateway", 
+    "label": "🌐 API Gateway",
+    "dependencies": [
+        { "target": "user-service", "type": "sync" },
+        { "target": "order-service", "type": "sync" },
+        { "target": "payment-service", "type": "sync" }
+    ]
+  },
+  {
+    "name": "user-service",
+    "type": "service",
+    "label": "👤 User Service",
+    "dependencies": [
+        { "target": "postgres-users", "type": "sync" }
+    ]
+  },
+  {
+    "name": "order-service",
+    "type": "service",
+    "label": "📦 Order Service",
+    "dependencies": [
+        { "target": "postgres-orders", "type": "sync" },
+        { "target": "kafka", "type": "async", "label": "OrderPlaced" }
+    ]
+  },
+  {
+    "name": "payment-service",
+    "type": "service",
+    "label": "💳 Payment Service",
+    "dependencies": [
+        { "target": "rabbitmq", "type": "async", "label": "PaymentProcessed" }
+    ]
+  },
+  {
+    "name": "inventory-service",
+    "type": "service",
+    "label": "🏭 Inventory Service",
+    "dependencies": [
+        { "target": "kafka", "type": "async", "label": "Consumer" },
+        { "target": "postgres-inventory", "type": "sync" }
+    ]
+  },
+  {
+    "name": "notification-service",
+    "type": "service",
+    "label": "🔔 Notification Service",
+    "dependencies": [
+        { "target": "kafka", "type": "async", "label": "Email" },
+        { "target": "rabbitmq", "type": "async", "label": "SMS" }
+    ]
+  },
+  {
+    "name": "kafka",
+    "type": "queue",
+    "label": "📊 Kafka (Redpanda)",
+    "dependencies": [
+    ]
+  },
+  {
+    "name": "rabbitmq",
+    "type": "queue",
+    "label": "🐰 RabbitMQ",
+    "dependencies": [
+    ]
+  },
+  {
+    "name": "postgres-users",
+    "type": "database",
+    "label": "🗄️ Users DB"
+  },
+  {
+    "name": "postgres-orders",
+    "type": "database",
+    "label": "🗄️ Orders DB"
+  },
+  {
+    "name": "postgres-inventory",
+    "type": "database",
+    "label": "🗄️ Inventory DB"
+  }
+]
