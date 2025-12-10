@@ -47,8 +47,7 @@
 ### First Login
 On the first run, LunaFlow will generate a secure **Initial Admin Password**.
 *   Navigate to the installation folder.
-*   Open `initial_admin_password.txt`.
-*   Use `admin` as the username and the password from the file to log in.
+*   Use `admin` as the username and `admin123` as the password to log in.
 
 > **Note**: We strongly recommend changing your password and creating new users immediately after the first login.
 
