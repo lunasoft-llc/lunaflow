@@ -1,0 +1,4 @@
+dist\assets\index-De9hH7Hy.css
+dist\assets\index-DgkE5xzp.js
+dist\index.html
+Microsoft.Extensions.FileProviders.Embedded.Manifest.xml
